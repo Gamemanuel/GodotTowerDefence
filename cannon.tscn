@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://bp4yptuy5a7gv"]
+
+[ext_resource type="Script" path="res://cannon.gd" id="1_pwu1o"]
+[ext_resource type="Texture2D" uid="uid://flcako7osynk" path="res://players/towerDefense_tile181.png" id="1_wp3u1"]
+[ext_resource type="Texture2D" uid="uid://ws0cqvf3agd5" path="res://players/towerDefense_tile203.png" id="2_evir8"]
+[ext_resource type="Texture2D" uid="uid://bi3738hefgbtr" path="res://players/towerDefense_tile204.png" id="3_cstf6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0wrjf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_evir8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_cstf6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Cannon" type="Node2D"]
+script = ExtResource("1_pwu1o")
+
+[node name="Base" type="Sprite2D" parent="."]
+texture = ExtResource("1_wp3u1")
+
+[node name="turret" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0wrjf")

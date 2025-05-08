@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://befmffv117ogq"]
+
+[ext_resource type="Script" path="res://cannon.gd" id="1_3h826"]
+[ext_resource type="Texture2D" uid="uid://flcako7osynk" path="res://players/towerDefense_tile181.png" id="2_fokq3"]
+[ext_resource type="Texture2D" uid="uid://04iyr577ngh0" path="res://players/towerDefense_tile250.png" id="3_qbegm"]
+
+[node name="GunT2" type="Node2D"]
+script = ExtResource("1_3h826")
+
+[node name="Base" type="Sprite2D" parent="."]
+texture = ExtResource("2_fokq3")
+
+[node name="Turret" type="Sprite2D" parent="."]
+texture = ExtResource("3_qbegm")
+offset = Vector2(0, -12)
+
+[node name="Muzzle1" type="Marker2D" parent="Turret"]
+position = Vector2(-6, -41)
+
+[node name="Muzzle2" type="Marker2D" parent="Turret"]
+position = Vector2(6, -41)
