@@ -1,10 +1,7 @@
-[gd_scene load_steps=13 format=4 uid="uid://dhbry11fxkm5i"]
+[gd_scene load_steps=11 format=4 uid="uid://dhbry11fxkm5i"]
 
 [ext_resource type="Texture2D" uid="uid://dnwtvpbqt04rk" path="res://Assets/TowerDefense/kenney_tower-defense-top-down/Tilesheet/towerDefense_tilesheet.png" id="1_ai0og"]
 [ext_resource type="Texture2D" uid="uid://bykbl30vuvqel" path="res://players/Obstructed.png" id="2_dcdc7"]
-[ext_resource type="PackedScene" uid="uid://7elo10hdiunk" path="res://GunT1.tscn" id="2_nxr6d"]
-[ext_resource type="PackedScene" uid="uid://befmffv117ogq" path="res://GunT2.tscn" id="3_yt5tg"]
-[ext_resource type="PackedScene" uid="uid://bjhjbpcney2xd" path="res://MissileT1.tscn" id="4_w6ofq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uov6n"]
 texture = ExtResource("1_ai0og")
@@ -1011,6 +1008,12 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_th5oj")
 
+[sub_resource type="Curve2D" id="Curve2D_13cyt"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -129, 546, -60.408, 0.943874, 60.408, -0.943874, 167, 546, 0, 0, 0, 0, 221, 479, -0.943874, 56.6325, 0.943874, -56.6325, 221, 145, 0, 0, 0, 0, 298, 90, 0, 0, 0, 0, 810, 88, 0, -72.6783, 0, 72.6783, 867, 160, 0, 0, 0, 0, 863, 251, 67.0151, -1.88775, -67.0151, 1.88775, 806, 295, 61.3518, -0.943874, -61.3518, 0.943874, 543, 291, 0, 0, 0, 0, 481, 352, -2.00226, -64.7397, 2.00226, 64.7397, 480, 505, 0, 0, 0, 0, 543, 556, 0, 0, 0, 0, 1331, 552)
+}
+point_count = 14
+
 [node name="Map1" type="Node2D"]
 
 [node name="Map" type="TileMapLayer" parent="."]
@@ -1027,11 +1030,5 @@ tile_set = SubResource("TileSet_d6gjj")
 
 [node name="turrets" type="Node2D" parent="."]
 
-[node name="GunT1" parent="turrets" instance=ExtResource("2_nxr6d")]
-position = Vector2(108, 120)
-
-[node name="GunT2" parent="turrets" instance=ExtResource("3_yt5tg")]
-position = Vector2(358, 449)
-
-[node name="MissileT1" parent="turrets" instance=ExtResource("4_w6ofq")]
-position = Vector2(325, 210)
+[node name="Path" type="Path2D" parent="."]
+curve = SubResource("Curve2D_13cyt")

@@ -12,10 +12,10 @@ texture = ExtResource("2_fokq3")
 
 [node name="Turret" type="Sprite2D" parent="."]
 texture = ExtResource("3_qbegm")
-offset = Vector2(0, -12)
+offset = Vector2(12, 0)
 
 [node name="Muzzle1" type="Marker2D" parent="Turret"]
-position = Vector2(-6, -41)
+position = Vector2(41, -6)
 
 [node name="Muzzle2" type="Marker2D" parent="Turret"]
-position = Vector2(6, -41)
+position = Vector2(41, 6)

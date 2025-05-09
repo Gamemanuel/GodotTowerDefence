@@ -1,11 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://djst45txdaurd"]
+[gd_scene load_steps=10 format=3 uid="uid://djst45txdaurd"]
 
-[ext_resource type="PackedScene" uid="uid://dhbry11fxkm5i" path="res://map1.tscn" id="1_bcvkg"]
+[ext_resource type="PackedScene" uid="uid://dhbry11fxkm5i" path="res://Map1.tscn" id="1_bcvkg"]
 [ext_resource type="Script" path="res://game_scene.gd" id="1_g028k"]
 [ext_resource type="Texture2D" uid="uid://cx32mfb3l8h8h" path="res://Assets/UI/PNG/Blue/Default/button_square_depth_flat.png" id="2_hvnca"]
 [ext_resource type="Script" path="res://UI.gd" id="3_41iin"]
 [ext_resource type="Texture2D" uid="uid://obvfcygcsr1h" path="res://players/towerDefense_tile249.png" id="3_80iw6"]
 [ext_resource type="Texture2D" uid="uid://djhl4tunb47fy" path="res://players/towerDefense_tile251.png" id="4_faed8"]
+[ext_resource type="Texture2D" uid="uid://bpjh4d6s2odhq" path="res://Assets/kenney_game-icons/PNG/White/2x/right.png" id="7_i4rqe"]
+[ext_resource type="Texture2D" uid="uid://ukmfhmj7xtnn" path="res://Assets/kenney_game-icons/PNG/White/2x/pause.png" id="8_xmdar"]
+[ext_resource type="Texture2D" uid="uid://db2t0rrqcdpld" path="res://Assets/kenney_game-icons/PNG/White/2x/fastForward.png" id="9_kw7ya"]
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_g028k")
@@ -81,3 +84,40 @@ grow_horizontal = 2
 grow_vertical = 2
 rotation = 1.5708
 texture = ExtResource("4_faed8")
+
+[node name="GameControls" type="HBoxContainer" parent="UI/HUD"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -222.0
+offset_top = -118.0
+offset_right = -18.0
+offset_bottom = -18.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.9, 0.9)
+
+[node name="PausePlay" type="TextureButton" parent="UI/HUD/GameControls"]
+process_mode = 3
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+toggle_mode = true
+texture_normal = ExtResource("7_i4rqe")
+texture_pressed = ExtResource("8_xmdar")
+stretch_mode = 0
+
+[node name="SpeedUp" type="TextureButton" parent="UI/HUD/GameControls"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("9_kw7ya")
+stretch_mode = 0
+
+[connection signal="pressed" from="UI/HUD/GameControls/PausePlay" to="UI" method="_on_PausePlay_pressed"]
+[connection signal="pressed" from="UI/HUD/GameControls/SpeedUp" to="UI" method="_on_SpeedUp_pressed"]
