@@ -11,7 +11,7 @@ func _ready() -> void:
 	if built:
 		print(type)
 		self.get_node("Range/CollisionShape2D").get_shape().radius = 0.5 * GameData.tower_data[type]["range"]
-		self.get_node("Turret/Muzzle/MuzzleFlash").visible = false
+		
 	
 func _physics_process(delta: float) -> void:
 	if enemy_array.size() != 0 and built:

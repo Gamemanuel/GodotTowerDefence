@@ -19,10 +19,10 @@ tracks/0/path = NodePath("Turret/Muzzle/MuzzleFlash:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.0501, 0.0502),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.05, 0.0501, 0.0502, 0.0503, 0.0504, 0.0505),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [false, false, true, true]
+"values": [true, false, true, false, false, false, false]
 }
 
 [sub_resource type="Animation" id="Animation_5u2bp"]
