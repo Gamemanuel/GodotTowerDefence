@@ -102,6 +102,8 @@ func verify_and_build():
 		var new_tower = load("res://" + build_type + ".tscn").instantiate()
 		new_tower.position = build_location
 		new_tower.built = true
+		new_tower.type = build_type
+		new_tower.category = GameData.tower_data[build_type]["category"]
 		map_node.get_node("turrets").add_child(new_tower, true)
 		var tile_id = 0  # The ID of the tile in the TileSet
 		var layer = 0  # The layer where the tile will be placed

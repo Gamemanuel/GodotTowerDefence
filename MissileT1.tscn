@@ -1,12 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjhjbpcney2xd"]
+[gd_scene load_steps=6 format=3 uid="uid://bjhjbpcney2xd"]
 
 [ext_resource type="Script" path="res://missle_launcher.gd" id="1_rntu2"]
 [ext_resource type="Texture2D" uid="uid://flcako7osynk" path="res://players/towerDefense_tile181.png" id="2_rkttg"]
 [ext_resource type="Texture2D" uid="uid://cdo6i7uj1wt76" path="res://players/towerDefense_tile228.png" id="3_bk321"]
 [ext_resource type="Texture2D" uid="uid://djhl4tunb47fy" path="res://players/towerDefense_tile251.png" id="4_dioxt"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ukrqr"]
+
 [node name="MissileT1" type="Node2D"]
-position = Vector2(0, 32)
 script = ExtResource("1_rntu2")
 
 [node name="Base" type="Sprite2D" parent="."]
@@ -26,6 +27,7 @@ offset = Vector2(6, 10)
 [node name="Range" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+shape = SubResource("CircleShape2D_ukrqr")
 
 [connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
 [connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]

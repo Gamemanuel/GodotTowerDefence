@@ -1,8 +1,10 @@
+AnimationPlayer
+Sprite2D
+TextureProgressBar
 CollisionShape2D
 Area2D
 TextureButton
 HBoxContainer
-Sprite2D
 CharacterBody2D
 PathFollow2D
 Path2D
@@ -11,4 +13,3 @@ TextureRect
 VBoxContainer
 Control
 CanvasLayer
-Label
