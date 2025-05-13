@@ -1,3 +1,5 @@
+AnimatedSprite2D
+Marker2D
 AnimationPlayer
 Sprite2D
 TextureProgressBar
@@ -8,8 +10,6 @@ HBoxContainer
 CharacterBody2D
 PathFollow2D
 Path2D
-Marker2D
 TextureRect
 VBoxContainer
 Control
-CanvasLayer

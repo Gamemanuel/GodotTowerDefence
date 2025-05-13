@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://djst45txdaurd"]
 
-[ext_resource type="PackedScene" uid="uid://dhbry11fxkm5i" path="res://map1.tscn" id="1_bcvkg"]
+[ext_resource type="PackedScene" uid="uid://dhbry11fxkm5i" path="res://Map1.tscn" id="1_bcvkg"]
 [ext_resource type="Script" path="res://game_scene.gd" id="1_g028k"]
 [ext_resource type="Texture2D" uid="uid://cx32mfb3l8h8h" path="res://Assets/UI/PNG/Blue/Default/button_square_depth_flat.png" id="2_hvnca"]
 [ext_resource type="Script" path="res://UI.gd" id="3_41iin"]
