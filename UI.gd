@@ -2,7 +2,25 @@ extends CanvasLayer
 
 var tower_preview = null
 var tower_range = 750
+var startingGold = 100
+var Gold
+var Hp = 100
 
+@onready var hp_bar = get_node("HUD/UpperMenu/Health/HP")
+
+func _ready() -> void:
+	var moneyDisplay = get_node("HUD/UpperMenu/Money/MoneyIcon/Money")
+	moneyDisplay.text = str(startingGold)
+	Gold = startingGold
+	var HealthProgressImg = get_node("HUD/UpperMenu/Health/HP")
+	var HealthProgressText = get_node("HUD/UpperMenu/Health/HP/Health")
+	HealthProgressImg.value = Hp
+	HealthProgressText.text = str(Hp)
+	
+
+func _process(delta: float) -> void:
+	var moneyDisplay = get_node("HUD/UpperMenu/Money/MoneyIcon/Money")
+	moneyDisplay.text = str(Gold)
 
 func set_tower_preview(tower_type, mouse_position):
 	var drag_tower = load("res://" + tower_type + ".tscn").instantiate()
@@ -52,19 +70,27 @@ func cancel_build_mode():
 ## Game controll functions
 ##
 
-
 func _on_PausePlay_pressed():
 	if get_parent().build_mode:
 		get_parent().cancel_build_mode()
-	if get_tree().is_paused():
-		get_tree().paused = false
-		
 	elif get_parent().current_wave == 0:
 		get_parent().current_wave += 1
 		get_parent().start_next_wave()
+	elif get_parent().wave_ended:
+		get_parent().wave_ended = false
+		get_parent().current_wave += 1
+		get_parent().start_next_wave()
 	else:
-		get_tree().paused = true
-
+		get_tree().paused = !get_tree().paused
+		# Optional: Update button texture based on pause state
+		var play_button = get_node("HUD/GameControls/PausePlay")
+		if is_instance_valid(play_button) and play_button is TextureButton:
+			if get_tree().paused:
+				
+				play_button.button_pressed = false
+			else:
+				
+				play_button.button_pressed = true
 
 func _on_SpeedUp_pressed() -> void:
 	if get_parent().build_mode:
@@ -73,3 +99,10 @@ func _on_SpeedUp_pressed() -> void:
 		Engine.set_time_scale(1.0)
 	else:
 		Engine.set_time_scale(2.0)
+
+
+func update_health_bar(base_health):
+	var health_bar = get_node("HUD/UpperMenu/Health/HP/Health")
+	var hp_bar_tween = hp_bar.create_tween().bind_node(hp_bar)
+	hp_bar_tween.tween_property(hp_bar, "value", base_health, 0.1).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+	health_bar.text = str(base_health)

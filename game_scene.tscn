@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://djst45txdaurd"]
+[gd_scene load_steps=14 format=3 uid="uid://djst45txdaurd"]
 
 [ext_resource type="PackedScene" uid="uid://dhbry11fxkm5i" path="res://map1.tscn" id="1_bcvkg"]
 [ext_resource type="Script" path="res://game_scene.gd" id="1_g028k"]
@@ -6,7 +6,11 @@
 [ext_resource type="Script" path="res://UI.gd" id="3_41iin"]
 [ext_resource type="Texture2D" uid="uid://obvfcygcsr1h" path="res://players/towerDefense_tile249.png" id="3_80iw6"]
 [ext_resource type="Texture2D" uid="uid://djhl4tunb47fy" path="res://players/towerDefense_tile251.png" id="4_faed8"]
+[ext_resource type="Texture2D" uid="uid://cmvonsq46cewb" path="res://Assets/TowerDefense/kenney_tower-defense-top-down/PNG/Default size/towerDefense_tile287.png" id="4_yg5nh"]
+[ext_resource type="FontFile" uid="uid://dehlrw5yoxk0" path="res://Assets/UI/Font/Kenney Future Narrow.ttf" id="5_qogv0"]
+[ext_resource type="Texture2D" uid="uid://dhff0ulipssj6" path="res://players/hud_heart_empty.png" id="6_45fuy"]
 [ext_resource type="Texture2D" uid="uid://bpjh4d6s2odhq" path="res://Assets/kenney_game-icons/PNG/White/2x/right.png" id="7_i4rqe"]
+[ext_resource type="Texture2D" uid="uid://ce7dtxdpi8fde" path="res://players/hud_heart.png" id="7_tvwfm"]
 [ext_resource type="Texture2D" uid="uid://ukmfhmj7xtnn" path="res://Assets/kenney_game-icons/PNG/White/2x/pause.png" id="8_xmdar"]
 [ext_resource type="Texture2D" uid="uid://db2t0rrqcdpld" path="res://Assets/kenney_game-icons/PNG/White/2x/fastForward.png" id="9_kw7ya"]
 
@@ -26,6 +30,79 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="UpperMenu" type="HBoxContainer" parent="UI/HUD"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 64.0
+grow_horizontal = 2
+theme_override_constants/separation = 100
+
+[node name="Money" type="HBoxContainer" parent="UI/HUD/UpperMenu"]
+layout_mode = 2
+alignment = 1
+
+[node name="MoneyIcon" type="TextureRect" parent="UI/HUD/UpperMenu/Money"]
+texture_filter = 2
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+texture = ExtResource("4_yg5nh")
+
+[node name="Money" type="Label" parent="UI/HUD/UpperMenu/Money/MoneyIcon"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -18.0
+offset_right = 105.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("5_qogv0")
+theme_override_font_sizes/font_size = 32
+text = "100"
+clip_text = true
+text_direction = 1
+
+[node name="Health" type="HBoxContainer" parent="UI/HUD/UpperMenu"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 0
+
+[node name="HP" type="TextureProgressBar" parent="UI/HUD/UpperMenu/Health"]
+layout_mode = 2
+min_value = 1.0
+value = 1.0
+allow_lesser = true
+texture_under = ExtResource("6_45fuy")
+texture_progress = ExtResource("7_tvwfm")
+
+[node name="Health" type="Label" parent="UI/HUD/UpperMenu/Health/HP"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -18.0
+offset_right = 146.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("5_qogv0")
+theme_override_font_sizes/font_size = 32
+text = "100
+"
+clip_text = true
+text_direction = 1
 
 [node name="BuildBar" type="VBoxContainer" parent="UI/HUD"]
 custom_minimum_size = Vector2(100, 400)

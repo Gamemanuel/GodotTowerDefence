@@ -1,11 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjhjbpcney2xd"]
+[gd_scene load_steps=9 format=3 uid="uid://bjhjbpcney2xd"]
 
 [ext_resource type="Script" path="res://missle_launcher.gd" id="1_rntu2"]
 [ext_resource type="Texture2D" uid="uid://flcako7osynk" path="res://players/towerDefense_tile181.png" id="2_rkttg"]
 [ext_resource type="Texture2D" uid="uid://cdo6i7uj1wt76" path="res://players/towerDefense_tile228.png" id="3_bk321"]
-[ext_resource type="Texture2D" uid="uid://djhl4tunb47fy" path="res://players/towerDefense_tile251.png" id="4_dioxt"]
+[ext_resource type="Texture2D" uid="uid://djhl4tunb47fy" path="res://players/towerDefense_tile251.png" id="4_ye858"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ukrqr"]
+
+[sub_resource type="Animation" id="Animation_xcugq"]
+resource_name = "Fire"
+
+[sub_resource type="Animation" id="Animation_h2jn0"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hwats"]
+_data = {
+"Fire": SubResource("Animation_xcugq"),
+"RESET": SubResource("Animation_h2jn0")
+}
 
 [node name="MissileT1" type="Node2D"]
 script = ExtResource("1_rntu2")
@@ -17,17 +29,22 @@ texture = ExtResource("2_rkttg")
 texture = ExtResource("3_bk321")
 
 [node name="Missile1" type="Sprite2D" parent="Turret"]
-texture = ExtResource("4_dioxt")
+texture = ExtResource("4_ye858")
 offset = Vector2(6, -10)
 
 [node name="Missile2" type="Sprite2D" parent="Turret"]
-texture = ExtResource("4_dioxt")
-offset = Vector2(6, 10)
+position = Vector2(6, 10)
+texture = ExtResource("4_ye858")
 
 [node name="Range" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
 shape = SubResource("CircleShape2D_ukrqr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hwats")
+}
 
 [connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
 [connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]

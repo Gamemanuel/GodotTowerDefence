@@ -1,20 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqbdbnvda5n21"]
+[gd_scene load_steps=6 format=3 uid="uid://dqbdbnvda5n21"]
 
-[ext_resource type="Script" path="res://blue_tank.gd" id="1_56yt1"]
+[ext_resource type="Script" path="res://BlueTank.gd" id="1_56yt1"]
 [ext_resource type="Texture2D" uid="uid://c7flbxnf7q0mj" path="res://players/tank_blue.png" id="1_pu8yr"]
 [ext_resource type="Texture2D" uid="uid://c8e5oddsqlwpj" path="res://Assets/UI/PNG/Grey/Default/bar_square_gloss_large.png" id="3_wllnw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2l7ei"]
 size = Vector2(44, 42)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h6fks"]
+
 [node name="BlueTank" type="PathFollow2D"]
 loop = false
 script = ExtResource("1_56yt1")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="CharacterBody2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("RectangleShape2D_2l7ei")
+
+[node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
+shape = SubResource("RectangleShape2D_h6fks")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_pu8yr")

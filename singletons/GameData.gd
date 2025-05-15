@@ -12,3 +12,9 @@ var tower_data = {
 		"rof": 3,
 		"range": 550,
 		"category": "Missile"}}
+
+#var enemy = {
+	#"Blue": {
+		#"damage": 
+	#}
+#}
