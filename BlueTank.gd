@@ -5,6 +5,7 @@ signal base_damage(damage)
 var speed = 0.1
 var hp = 50
 var baseDamage = 21
+var loaded = false # Initially not loaded
 
 @onready var health_bar = get_node("HealthBar")
 @onready var impact_area = get_node("Impact")
@@ -14,6 +15,7 @@ func _ready():
 	health_bar.max_value = hp
 	health_bar.value = hp
 	health_bar.top_level = true
+	loaded = true # Tank is loaded when _ready is finished
 
 func _process(delta: float) -> void:
 	if self.progress_ratio >= 1.0:
@@ -41,8 +43,9 @@ func impact():
 	var new_impact = projectile_impact.instantiate()
 	new_impact.position = impact_location
 	impact_area.add_child(new_impact)
-	
+
 func on_destroy():
-	get_node("CharacterBody2D").queue_free()
-	await get_tree().create_timer(.2).timeout
+	if is_instance_valid(get_node_or_null("CharacterBody2D")):
+		get_node("CharacterBody2D").queue_free()
+	await get_tree().create_timer(0.2).timeout
 	self.queue_free()

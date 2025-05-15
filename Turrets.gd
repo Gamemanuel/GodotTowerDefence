@@ -29,6 +29,7 @@ func _ready() -> void:
 			# Start the continuous visual reload cycle
 			_cycle_visual_reload()
 		else:
+			# this means that you are trying to hit a tank that has not been fully loaded and the error is regular
 			printerr("Error: Ensure 'Turret/Missile1' and 'Turret/Missile2' nodes exist.")
 
 func _physics_process(delta: float) -> void:
@@ -36,7 +37,7 @@ func _physics_process(delta: float) -> void:
 		select_enemy()
 		if not get_node("AnimationPlayer").is_playing():
 			turn()
-		if fire_ready:
+		if fire_ready and enemy != null: # Only fire if there's a valid enemy
 			fire()
 	else:
 		enemy = null
@@ -50,14 +51,16 @@ func select_enemy():
 		enemy = null
 		return
 
-	var closest_enemy = enemy_array[0]
-	var min_distance = closest_enemy.global_position.distance_to(global_position)
+	var closest_enemy = null
+	var min_distance = INF
 
 	for e in enemy_array:
-		var distance = e.global_position.distance_to(global_position)
-		if distance < min_distance:
-			closest_enemy = e
-			min_distance = distance
+		# Check if the enemy is valid and loaded
+		if is_instance_valid(e) and "loaded" in e and e.loaded:
+			var distance = e.global_position.distance_to(global_position)
+			if distance < min_distance:
+				closest_enemy = e
+				min_distance = distance
 
 	enemy = closest_enemy
 
