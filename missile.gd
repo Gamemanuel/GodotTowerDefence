@@ -1,5 +1,3 @@
-# In MissileT1.gd
-
 extends CharacterBody2D
 
 var speed = 1200

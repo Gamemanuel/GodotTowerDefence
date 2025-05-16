@@ -1,32 +1,37 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1747267145
-BlueTank.gd::GDScript::-1::1747257607::0::1::::<>PathFollow2D<>::
-blue_tank.tscn::PackedScene::8284532579196031348::1747267058::0::1::::<><>::res://BlueTank.gd<>uid://c7flbxnf7q0mj::::res://players/tank_blue.png<>uid://c8e5oddsqlwpj::::res://Assets/UI/PNG/Grey/Default/bar_square_gloss_large.png
+::res://::1747418800
+ArmoredTank.gd::GDScript::-1::1747364493::0::1::::<>PathFollow2D<>::
+armored_tank.tscn::PackedScene::9201100188315222358::1747416869::0::1::::<><>::res://ArmoredTank.gd<>uid://cjxah5v84s6rf::::res://Enemies/tank_darkLarge.png<>uid://c8e5oddsqlwpj::::res://Assets/UI/PNG/Grey/Default/bar_square_gloss_large.png
+BlackTank.gd::GDScript::-1::1747364473::0::1::::<>PathFollow2D<>::
+black_tank.tscn::PackedScene::8015729987794582914::1747340672::0::1::::<><>::res://BlackTank.gd<>uid://fhfhcx60fv10::::res://Enemies/tank_dark.png<>uid://c8e5oddsqlwpj::::res://Assets/UI/PNG/Grey/Default/bar_square_gloss_large.png
+BlueTank.gd::GDScript::-1::1747364415::0::1::::<>PathFollow2D<>::
+blue_tank.tscn::PackedScene::8284532579196031348::1747416870::0::1::::<><>::res://BlueTank.gd<>uid://c7flbxnf7q0mj::::res://players/tank_blue.png<>uid://c8e5oddsqlwpj::::res://Assets/UI/PNG/Grey/Default/bar_square_gloss_large.png
 cannon.gd::GDScript::-1::1746662166::0::1::::<>Node2D<>::
 cannon.tscn::PackedScene::3500605317836607425::1746672852::0::1::::<><>::res://cannon.gd<>uid://flcako7osynk::::res://players/towerDefense_tile181.png<>uid://ws0cqvf3agd5::::res://players/towerDefense_tile203.png<>uid://bi3738hefgbtr::::res://players/towerDefense_tile204.png
+enemies.gd::GDScript::-1::1747363416::0::1::::<>PathFollow2D<>::
 focus.tres::StyleBoxFlat::6611835928698599888::1747180172::0::1::::<><>::
-game_scene.gd::GDScript::-1::1747248170::0::1::::<>Node2D<>::
-game_scene.tscn::PackedScene::7829327460381311077::1747267058::0::1::::<><>::uid://dhbry11fxkm5i::::res://map1.tscn<>res://game_scene.gd<>uid://cx32mfb3l8h8h::::res://Assets/UI/PNG/Blue/Default/button_square_depth_flat.png<>res://UI.gd<>uid://obvfcygcsr1h::::res://players/towerDefense_tile249.png<>uid://djhl4tunb47fy::::res://players/towerDefense_tile251.png<>uid://cmvonsq46cewb::::res://Assets/TowerDefense/kenney_tower-defense-top-down/PNG/Default size/towerDefense_tile287.png<>uid://dehlrw5yoxk0::::res://Assets/UI/Font/Kenney Future Narrow.ttf<>uid://dhff0ulipssj6::::res://players/hud_heart_empty.png<>uid://bpjh4d6s2odhq::::res://Assets/kenney_game-icons/PNG/White/2x/right.png<>uid://ce7dtxdpi8fde::::res://players/hud_heart.png<>uid://ukmfhmj7xtnn::::res://Assets/kenney_game-icons/PNG/White/2x/pause.png<>uid://db2t0rrqcdpld::::res://Assets/kenney_game-icons/PNG/White/2x/fastForward.png
+game_scene.gd::GDScript::-1::1747408273::0::1::::<>Node2D<>::
+game_scene.tscn::PackedScene::7829327460381311077::1747416869::0::1::::<><>::uid://b3jpxbpqfu7x4::::res://map1.tscn<>res://game_scene.gd<>uid://cx32mfb3l8h8h::::res://Assets/UI/PNG/Blue/Default/button_square_depth_flat.png<>res://UI.gd<>uid://obvfcygcsr1h::::res://players/towerDefense_tile249.png<>uid://djhl4tunb47fy::::res://players/towerDefense_tile251.png<>uid://cmvonsq46cewb::::res://Assets/TowerDefense/kenney_tower-defense-top-down/PNG/Default size/towerDefense_tile287.png<>uid://dehlrw5yoxk0::::res://Assets/UI/Font/Kenney Future Narrow.ttf<>uid://dhff0ulipssj6::::res://players/hud_heart_empty.png<>uid://bpjh4d6s2odhq::::res://Assets/kenney_game-icons/PNG/White/2x/right.png<>uid://ce7dtxdpi8fde::::res://players/hud_heart.png<>uid://ukmfhmj7xtnn::::res://Assets/kenney_game-icons/PNG/White/2x/pause.png<>uid://db2t0rrqcdpld::::res://Assets/kenney_game-icons/PNG/White/2x/fastForward.png
 greenSoldger.tscn::PackedScene::2027152873798427659::1746657738::0::1::::<><>::uid://bp2o8g2vh1jf::::res://players/towerDefense_tile245.png
-gunner.gd::GDScript::-1::1747180172::0::1::::<>Node2D<>::
-GunT1.tscn::PackedScene::2254994800017984164::1747267058::0::1::::<><>::res://gunner.gd<>uid://flcako7osynk::::res://players/towerDefense_tile181.png<>uid://obvfcygcsr1h::::res://players/towerDefense_tile249.png<>uid://c2i6np8bpmoqb::::res://players/towerDefense_tile297.png
+gunner.gd::GDScript::-1::1747411365::0::1::::<>Node2D<>::
+GunT1.tscn::PackedScene::2254994800017984164::1747416869::0::1::::<><>::res://gunner.gd<>uid://flcako7osynk::::res://players/towerDefense_tile181.png<>uid://obvfcygcsr1h::::res://players/towerDefense_tile249.png<>uid://c2i6np8bpmoqb::::res://players/towerDefense_tile297.png<>uid://byllk5qg8dojh::::res://Assets/UI/PNG/Blue/Default/button_square_flat.png<>uid://pl0kwpdldrsd::::res://Assets/UI/PNG/Blue/Default/button_square_gradient.png<>uid://c351g7h81m7do::::res://Assets/UI/Font/Kenney Future.ttf<>uid://dkypfeoingq5j::::res://players/towerDefense_tile298.png<>uid://dto32wpdkcgg1::::res://Assets/UI/PNG/Blue/Default/crosshair_color_a.png<>uid://b8j7tuiov1sup::::res://Assets/kenney_game-icons/PNG/White/2x/return.png<>uid://cmvonsq46cewb::::res://Assets/TowerDefense/kenney_tower-defense-top-down/PNG/Default size/towerDefense_tile287.png
 GunT2.tscn::PackedScene::2678235776173234868::1747183530::0::1::::<><>::res://cannon.gd<>uid://flcako7osynk::::res://players/towerDefense_tile181.png<>uid://04iyr577ngh0::::res://players/towerDefense_tile250.png
 icon.svg::CompressedTexture2D::6017534549204007071::1746657738::1747179714::1::::<><>::
 main_menu.gd::GDScript::-1::1746657738::0::1::::<>Control<>::
-main_menu.tscn::PackedScene::5858652832047840573::1747267058::0::1::::<><>::uid://cx4416o5jy5xq::::res://Assets/UI/BackGround.png<>uid://d3486q5x8d1es::::res://Assets/UI/PNG/Blue/Default/button_rectangle_depth_flat.png<>uid://bfkqcd0fgoytd::::res://Assets/UI/PNG/Blue/Default/button_rectangle_depth_gradient.png<>uid://cat5c1vcyat18::::res://uiButtons.tres
+main_menu.tscn::PackedScene::5858652832047840573::1747416869::0::1::::<><>::uid://cx4416o5jy5xq::::res://Assets/UI/BackGround.png<>uid://d3486q5x8d1es::::res://Assets/UI/PNG/Blue/Default/button_rectangle_depth_flat.png<>uid://bfkqcd0fgoytd::::res://Assets/UI/PNG/Blue/Default/button_rectangle_depth_gradient.png<>uid://cat5c1vcyat18::::res://uiButtons.tres
 map1.png::CompressedTexture2D::8292558543988877585::1746657738::1747179714::1::::<><>::
-map1.tscn::PackedScene::7653724788260676372::1747267058::0::1::::<><>::uid://dnwtvpbqt04rk::::res://Assets/TowerDefense/kenney_tower-defense-top-down/Tilesheet/towerDefense_tilesheet.png<>uid://bykbl30vuvqel::::res://players/Obstructed.png<>uid://bhk5r287tb6sl::::res://Assets/Tanks/Tilesheet/terrainTiles_default.png
-missile.gd::GDScript::-1::1747267055::0::1::::<>CharacterBody2D<>::
-Missile.tscn::PackedScene::2636114676574861710::1747267059::0::1::::<><>::res://missile.gd
-MissileT1.tscn::PackedScene::3033119950979456157::1747267058::0::1::::<><>::res://missle_launcher.gd<>uid://flcako7osynk::::res://players/towerDefense_tile181.png<>uid://cdo6i7uj1wt76::::res://players/towerDefense_tile228.png<>uid://bds7onwp5njjq::::res://Missile.tscn
-missle_launcher.gd::GDScript::-1::1747262122::0::1::::<>Node2D<>::
+map1.tscn::PackedScene::4371239609925744091::1747416870::0::1::::<><>::uid://dnwtvpbqt04rk::::res://Assets/TowerDefense/kenney_tower-defense-top-down/Tilesheet/towerDefense_tilesheet.png<>uid://bykbl30vuvqel::::res://players/Obstructed.png<>uid://bhk5r287tb6sl::::res://Assets/Tanks/Tilesheet/terrainTiles_default.png
+missile.gd::GDScript::-1::1747411122::0::1::::<>CharacterBody2D<>::
+Missile.tscn::PackedScene::2636114676574861710::1747416870::0::1::::<><>::res://missile.gd<>uid://djhl4tunb47fy::::res://players/towerDefense_tile251.png
+MissileT1.tscn::PackedScene::3033119950979456157::1747416869::0::1::::<><>::res://missle_launcher.gd<>uid://flcako7osynk::::res://players/towerDefense_tile181.png<>uid://cdo6i7uj1wt76::::res://players/towerDefense_tile228.png<>uid://djhl4tunb47fy::::res://players/towerDefense_tile251.png<>uid://byllk5qg8dojh::::res://Assets/UI/PNG/Blue/Default/button_square_flat.png<>uid://pl0kwpdldrsd::::res://Assets/UI/PNG/Blue/Default/button_square_gradient.png<>uid://c351g7h81m7do::::res://Assets/UI/Font/Kenney Future.ttf<>uid://dkypfeoingq5j::::res://players/towerDefense_tile298.png<>uid://dto32wpdkcgg1::::res://Assets/UI/PNG/Blue/Default/crosshair_color_a.png<>uid://b8j7tuiov1sup::::res://Assets/kenney_game-icons/PNG/White/2x/return.png<>uid://cmvonsq46cewb::::res://Assets/TowerDefense/kenney_tower-defense-top-down/PNG/Default size/towerDefense_tile287.png
+missle_launcher.gd::GDScript::-1::1747411380::0::1::::<>Node2D<>::
 ProjectileImpact.gd::GDScript::-1::1747109726::0::1::::<>AnimatedSprite2D<>::
 projectileImpact.tscn::PackedScene::5800647884827555992::1747198221::0::1::::<><>::uid://bc14ohs2sc0y6::::res://players/explosion1.png<>uid://c7jowb8f0hfuw::::res://players/explosion2.png<>uid://cjve8psm4o2le::::res://players/explosion3.png<>uid://cu8bmrj0hvghr::::res://players/explosion4.png<>uid://01fprxsk1l5o::::res://players/explosion5.png<>res://ProjectileImpact.gd
-scene_handeler.gd::GDScript::-1::1747255043::0::1::::<>Node<>::
-scene_handeler.tscn::PackedScene::2049493514646959457::1747267058::0::1::::<><>::res://scene_handeler.gd<>uid://cpp8fkswhnk82::::res://main_menu.tscn
-Turrets.gd::GDScript::-1::1747265810::0::1::::<>Node2D<>::
-UI.gd::GDScript::-1::1747261684::0::1::::<>CanvasLayer<>::
-uiButtons.tres::FontFile::4813891024255103841::1747180172::0::1::::<><>::
+scene_handeler.gd::GDScript::-1::1747413730::0::1::::<>Node<>::
+scene_handeler.tscn::PackedScene::2049493514646959457::1747416871::0::1::::<><>::res://scene_handeler.gd<>uid://cpp8fkswhnk82::::res://main_menu.tscn
+Turrets.gd::GDScript::-1::1747415080::0::1::::<>Node2D<>::
+UI.gd::GDScript::-1::1747414371::0::1::::<>CanvasLayer<>::
+uiButtons.tres::FontFile::4813891024255103841::1747411365::0::1::::<><>::
 ::res://Assets/::1746762220
 ::res://Assets/fonts/::1747179700
 Kenney Blocks.ttf::FontFile::7574832334150285360::1746657738::1747179700::1::::<><>::
@@ -3002,9 +3007,11 @@ towerDefense_tilesheet.png::CompressedTexture2D::8118325243646035320::1746657737
 towerDefense_tilesheet@2.png::CompressedTexture2D::7072883972715101325::1746657737::1747179737::1::::<><>::
 ::res://Assets/TowerDefense/kenney_tower-defense-top-down/Vector/::1747179736
 towerDefense_vector.svg::CompressedTexture2D::7237462598427255379::1746657737::1747179736::1::::<><>::
-::res://Assets/UI/::1747182643
+::res://Assets/UI/::1747365430
 BackGround.png::CompressedTexture2D::6448860600587620006::1746665243::1747179714::1::::<><>::
-::res://Assets/UI/Font/::1747182652
+::res://Assets/UI/Font/::1747365423
+Kenney Future (2).ttf::FontFile::2352078485611655564::1746664495::1747365423::1::::<><>::
+Kenney Future Narrow (2).ttf::FontFile::558281577549635376::1746664495::1747365423::1::::<><>::
 Kenney Future Narrow.ttf::FontFile::219269632891016953::1746657737::1747182652::1::::<><>::
 Kenney Future.ttf::FontFile::6801651371543717588::1746657737::1747179699::1::::<><>::
 ::res://Assets/UI/kenney_onscreen-controls/::1747179710
@@ -3446,13 +3453,6 @@ shaded-dark.svg::CompressedTexture2D::216751290580665369::1746664498::1747179710
 shaded-light.svg::CompressedTexture2D::1524160469099336717::1746664498::1747179710::1::::<><>::
 transparent-dark.svg::CompressedTexture2D::9139458554871848518::1746664498::1747179710::1::::<><>::
 transparent-light.svg::CompressedTexture2D::2132588809013620133::1746664498::1747179710::1::::<><>::
-::res://Assets/UI/kenney_ui-pack-space-expansion/::1747179710
-License.txt::TextFile::-1::1746664517::0::1::::<><>::
-Preview.png::CompressedTexture2D::7886307789967336965::1746664495::1747179710::1::::<><>::
-Sample.png::CompressedTexture2D::6899618471195295579::1746664495::1747179710::1::::<><>::
-::res://Assets/UI/kenney_ui-pack-space-expansion/Font/::1747179700
-Kenney Future Narrow.ttf::FontFile::558281577549635376::1746664495::1747179699::1::::<><>::
-Kenney Future.ttf::FontFile::2352078485611655564::1746664495::1747179699::1::::<><>::
 ::res://Assets/UI/PNG/::1746657738
 ::res://Assets/UI/PNG/Blue/::1746657737
 ::res://Assets/UI/PNG/Blue/Default/::1747179711
@@ -5898,7 +5898,7 @@ slide_vertical_grey_section_wide.svg::CompressedTexture2D::4124606399802130703::
 star.svg::CompressedTexture2D::3006605100661603427::1746657738::1747179714::1::::<><>::
 star_outline.svg::CompressedTexture2D::1590511179634629372::1746657738::1747179713::1::::<><>::
 star_outline_depth.svg::CompressedTexture2D::9029975716898631129::1746657738::1747179713::1::::<><>::
-::res://Enemies/::1747179715
+::res://Enemies/::1747339882
 explosion1.png::CompressedTexture2D::2309654327507429729::1746657737::1747179713::1::::<><>::
 explosion2.png::CompressedTexture2D::7964444494999725327::1746657737::1747179713::1::::<><>::
 explosion3.png::CompressedTexture2D::2427261681102611434::1746657737::1747179713::1::::<><>::
@@ -5981,13 +5981,13 @@ tankSand_barrel2.png::CompressedTexture2D::6191666297628632740::1746657737::1747
 tankSand_barrel2_outline.png::CompressedTexture2D::9166120751579095024::1746657737::1747179714::1::::<><>::
 tankSand_barrel3.png::CompressedTexture2D::1816517574290114461::1746657737::1747179714::1::::<><>::
 tankSand_barrel3_outline.png::CompressedTexture2D::8588094832726353779::1746657737::1747179714::1::::<><>::
-tank_bigRed.png::CompressedTexture2D::1670889879716779609::1746657737::1747179714::1::::<><>::
-tank_dark.png::CompressedTexture2D::365711090009077049::1746657737::1747179714::1::::<><>::
-tank_darkLarge.png::CompressedTexture2D::5452035758709466371::1746657737::1747179714::1::::<><>::
-tank_green.png::CompressedTexture2D::3516301029320376338::1746657737::1747179714::1::::<><>::
-tank_huge.png::CompressedTexture2D::8608120271811084265::1746657737::1747179714::1::::<><>::
-tank_red.png::CompressedTexture2D::5646113851021784957::1746657737::1747179714::1::::<><>::
-tank_sand.png::CompressedTexture2D::7615662410659989792::1746657737::1747179714::1::::<><>::
+tank_bigRed.png::CompressedTexture2D::1670889879716779609::1747339848::1747339882::1::::<><>::
+tank_dark.png::CompressedTexture2D::365711090009077049::1747339833::1747339882::1::::<><>::
+tank_darkLarge.png::CompressedTexture2D::5452035758709466371::1747339841::1747339882::1::::<><>::
+tank_green.png::CompressedTexture2D::3516301029320376338::1747339844::1747339882::1::::<><>::
+tank_huge.png::CompressedTexture2D::8608120271811084265::1747339851::1747339882::1::::<><>::
+tank_red.png::CompressedTexture2D::5646113851021784957::1747339854::1747339882::1::::<><>::
+tank_sand.png::CompressedTexture2D::7615662410659989792::1747339861::1747339882::1::::<><>::
 ::res://players/::1747245152
 explosion1.png::CompressedTexture2D::2582258383200465347::1746657737::1747179714::1::::<><>::
 explosion2.png::CompressedTexture2D::7038353192717177594::1746657737::1747179714::1::::<><>::
@@ -6039,5 +6039,5 @@ towerDefense_tile297.png::CompressedTexture2D::6686361448636845449::1746755237::
 towerDefense_tile298.png::CompressedTexture2D::7911615469519856581::1746755240::1747179714::1::::<><>::
 trash-24.svg::CompressedTexture2D::6402341884241441933::1747181754::1747183632::1::::<><>::
 x-circle-24.svg::CompressedTexture2D::3998719285485013824::1747181748::1747183632::1::::<><>::
-::res://singletons/::1747198842
-GameData.gd::GDScript::-1::1747198842::0::1::::<>Node<>::
+::res://singletons/::1747364519
+GameData.gd::GDScript::-1::1747364519::0::1::::<>Node<>::

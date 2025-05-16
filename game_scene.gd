@@ -15,7 +15,6 @@ var total_waves = -1 # -1 for infinite mode, set a number for finite
 var wave_active = false
 var enemies_spawned_this_wave = 0
 var wave_ended = false
-
 var base_health = 100
 
 # Configuration for initial waves
@@ -27,6 +26,7 @@ var waves_data = [
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	map_node = get_node("Map1")
+	print(GameData.Gold)
 
 	for i in get_tree().get_nodes_in_group("build_buttons"):
 		i.connect("pressed", Callable(self, "initiate_build_mode").bind(i.get_name()))
@@ -34,11 +34,17 @@ func _ready() -> void:
 	# Connect the game_finished signal to a function in this scene
 	connect("game_finished", self._on_game_finished)
 
-	# Do not start the first wave automatically
-	# start_next_wave()
+	# handel inital gold calculations
+	var moneyDisplay = get_node("UI/HUD/UpperMenu/Money/MoneyIcon/Money")
+	moneyDisplay.text = str(GameData.Gold)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	#update the money node
+	var moneyDisplay = get_node("UI/HUD/UpperMenu/Money/MoneyIcon/Money")
+	moneyDisplay.text = str(GameData.Gold)
+	
+	# calculate the movement of the turrent when we drag it with the mouse
 	if build_mode:
 		update_tower_preview()
 
@@ -52,8 +58,12 @@ func _process(delta: float) -> void:
 
 func _unhandled_input(event):
 	if event.is_action_released("Cancel_Tower") and build_mode:
+		#get_node("UI/HUD/GameControls/PausePlay").disabled = false
 		cancel_build_mode()
 	if event.is_action_released("Place_Tower") and build_mode:
+		#print('disabled')
+		#get_node("UI/HUD/GameControls/PausePlay").disabled = true 
+		#print(get_node("UI/HUD/GameControls/PausePlay").disabled)
 		verify_and_build()
 		cancel_build_mode()
 
@@ -81,11 +91,17 @@ func start_next_wave():
 		num_to_spawn = 3 + current_wave * 2 # Increase number of enemies per wave
 		wave_data_to_spawn.append(["blue_tank", randf_range(0.3, 1.2)])
 
-		# Introduce stronger enemies in later waves (commented out for now)
-		# if current_wave > 5:
-		# 	var chance_stronger = 0.1 + (float(current_wave) / (total_waves if total_waves != -1 else 20.0))
-		# 	if randf() < chance_stronger:
-		# 		wave_data_to_spawn.append(["stronger_tank", randf_range(0.5, 1.5)])
+		# Introduce stronger enemies in later waves
+		if current_wave > 5:
+			var chance_black = 0.1 + (float(current_wave) / (total_waves if total_waves != -1 else 20.0))
+			if randf() < chance_black:
+				wave_data_to_spawn.append(["black_tank", randf_range(0.5, 1.5)])
+
+		# Introduce even stronger enemies in even later waves
+		if current_wave > 10:
+			var chance_armored = 0.05 + (float(current_wave) / (total_waves if total_waves != -1 else 30.0))
+			if randf() < chance_armored:
+				wave_data_to_spawn.append(["armored_tank", randf_range(0.7, 2.0)])
 
 	enemies_in_wave = num_to_spawn
 	spawn_enemies(wave_data_to_spawn, num_to_spawn)
@@ -130,7 +146,7 @@ func update_tower_preview():
 	var tile_position = map_node.get_node("TowerExclusion").map_to_local(current_tile)
 
 	# Corrected placement validation
-	if map_node.get_node("TowerExclusion").get_cell_source_id(current_tile) == -1:
+	if map_node.get_node("TowerExclusion").get_cell_source_id(current_tile) == -1 and 0 <= GameData.Gold - GameData.tower_data[build_type]["cost"]:
 		get_node("UI").update_tower_preview(tile_position, "00ff00") # Green for valid placement
 		build_valid = true
 		build_location = tile_position
@@ -151,26 +167,28 @@ func cancel_build_mode():
 	build_mode = false
 	build_valid = false
 	get_node("UI/TowerPreview").free()
-
+	
 func verify_and_build():
-	if build_valid:
-		var new_tower = load("res://" + build_type + ".tscn").instantiate()
-		new_tower.position = build_location
-		new_tower.built = true
-		new_tower.type = build_type
-		new_tower.category = GameData.tower_data[build_type]["category"]
-		if new_tower.category == "Missile":
-			new_tower.fire_ready = true
-			new_tower.missile_1_ready = true
-			new_tower.missile_2_ready = false
-		map_node.get_node("turrets").add_child(new_tower, true)
-		var tile_id = 0  # The ID of the tile in the TileSet
-		var layer = 0   # The layer where the tile will be placed
-		var position = get_global_mouse_position()  # The grid position where the tile will be placed
-		map_node.get_node("TowerExclusion").set_cell(build_tile, 1, Vector2i(1,0) ,0)
-
-		## deduct cash
-		## update cash label
+	## deduct cash
+	var moneyDisplay = get_node("UI/HUD/UpperMenu/Money/MoneyIcon/Money")
+	if 0 <= GameData.Gold - GameData.tower_data[build_type]["cost"]:
+		
+		if build_valid:
+			var new_tower = load("res://" + build_type + ".tscn").instantiate()
+			new_tower.position = build_location
+			new_tower.built = true
+			new_tower.type = build_type
+			new_tower.category = GameData.tower_data[build_type]["category"]
+			if new_tower.category == "Missile":
+				new_tower.fire_ready = true
+				new_tower.missile_1_ready = true
+				new_tower.missile_2_ready = false
+			map_node.get_node("turrets").add_child(new_tower, true)
+			map_node.get_node("TowerExclusion").set_cell(build_tile, 1, Vector2i(1,0) ,0)
+			
+			## update cash label
+			GameData.Gold -= GameData.tower_data[build_type]["cost"]
+			moneyDisplay.text = str(GameData.Gold)
 
 func on_base_damage(damage):
 	base_health -= damage
@@ -181,16 +199,5 @@ func on_base_damage(damage):
 func _on_game_finished(won):
 	# 'won' will be false in this case (when base health is <= 0)
 	print("Game Over! Redirecting to Main Menu.")
-	get_tree().change_scene_to_file("res://main_menu.tscn") # Replace with your main menu scene path
-
-#func _process(delta: float) -> void:
-	#if build_mode:
-		#update_tower_preview()
-#
-	## Check if the current wave is complete
-	#if wave_active and get_tree().get_nodes_in_group("enemies").size() == 0 and enemies_spawned_this_wave == enemies_in_wave:
-		#wave_active = false
-		#wave_ended = true # Set the flag
-		#var play_button = get_node("UI/HUD/GameControls/PausePlay")
-		#if is_instance_valid(play_button) and play_button is TextureButton:
-			#play_button.button_pressed = false
+	get_tree().change_scene_to_file("res://scene_handeler.tscn") # Replace with your main menu scene path
+	GameData.Gold = 100

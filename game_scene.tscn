@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://djst45txdaurd"]
 
-[ext_resource type="PackedScene" uid="uid://dhbry11fxkm5i" path="res://map1.tscn" id="1_bcvkg"]
+[ext_resource type="PackedScene" uid="uid://b3jpxbpqfu7x4" path="res://map1.tscn" id="1_bcvkg"]
 [ext_resource type="Script" path="res://game_scene.gd" id="1_g028k"]
 [ext_resource type="Texture2D" uid="uid://cx32mfb3l8h8h" path="res://Assets/UI/PNG/Blue/Default/button_square_depth_flat.png" id="2_hvnca"]
 [ext_resource type="Script" path="res://UI.gd" id="3_41iin"]
@@ -37,38 +37,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 64.0
 grow_horizontal = 2
-theme_override_constants/separation = 100
-
-[node name="Money" type="HBoxContainer" parent="UI/HUD/UpperMenu"]
-layout_mode = 2
-alignment = 1
-
-[node name="MoneyIcon" type="TextureRect" parent="UI/HUD/UpperMenu/Money"]
-texture_filter = 2
-layout_mode = 2
-size_flags_horizontal = 2
-size_flags_vertical = 4
-texture = ExtResource("4_yg5nh")
-
-[node name="Money" type="Label" parent="UI/HUD/UpperMenu/Money/MoneyIcon"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -18.0
-offset_right = 105.0
-offset_bottom = 18.0
-grow_horizontal = 0
-grow_vertical = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("5_qogv0")
-theme_override_font_sizes/font_size = 32
-text = "100"
-clip_text = true
-text_direction = 1
+theme_override_constants/separation = 70
 
 [node name="Health" type="HBoxContainer" parent="UI/HUD/UpperMenu"]
 layout_mode = 2
@@ -101,6 +70,36 @@ theme_override_fonts/font = ExtResource("5_qogv0")
 theme_override_font_sizes/font_size = 32
 text = "100
 "
+clip_text = true
+text_direction = 1
+
+[node name="Money" type="HBoxContainer" parent="UI/HUD/UpperMenu"]
+layout_mode = 2
+alignment = 1
+
+[node name="MoneyIcon" type="TextureRect" parent="UI/HUD/UpperMenu/Money"]
+texture_filter = 2
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_yg5nh")
+
+[node name="Money" type="Label" parent="UI/HUD/UpperMenu/Money/MoneyIcon"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -18.0
+offset_right = 105.0
+offset_bottom = 18.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("5_qogv0")
+theme_override_font_sizes/font_size = 32
+text = "100"
 clip_text = true
 text_direction = 1
 

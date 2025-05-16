@@ -1,0 +1,293 @@
+[gd_scene load_steps=18 format=3 uid="uid://7elo10hdiunk"]
+
+[ext_resource type="Script" path="res://gunner.gd" id="1_avy6p"]
+[ext_resource type="Texture2D" uid="uid://flcako7osynk" path="res://players/towerDefense_tile181.png" id="2_cg12n"]
+[ext_resource type="Texture2D" uid="uid://obvfcygcsr1h" path="res://players/towerDefense_tile249.png" id="3_5po8r"]
+[ext_resource type="Texture2D" uid="uid://c2i6np8bpmoqb" path="res://players/towerDefense_tile297.png" id="4_ibo7v"]
+[ext_resource type="Texture2D" uid="uid://byllk5qg8dojh" path="res://Assets/UI/PNG/Blue/Default/button_square_flat.png" id="5_nxeve"]
+[ext_resource type="Texture2D" uid="uid://pl0kwpdldrsd" path="res://Assets/UI/PNG/Blue/Default/button_square_gradient.png" id="6_3hgax"]
+[ext_resource type="FontFile" uid="uid://c351g7h81m7do" path="res://Assets/UI/Font/Kenney Future.ttf" id="7_rmijf"]
+[ext_resource type="Texture2D" uid="uid://dkypfeoingq5j" path="res://players/towerDefense_tile298.png" id="8_2vvgw"]
+[ext_resource type="Texture2D" uid="uid://dto32wpdkcgg1" path="res://Assets/UI/PNG/Blue/Default/crosshair_color_a.png" id="9_yxjht"]
+[ext_resource type="Texture2D" uid="uid://b8j7tuiov1sup" path="res://Assets/kenney_game-icons/PNG/White/2x/return.png" id="10_5bglv"]
+[ext_resource type="Texture2D" uid="uid://cmvonsq46cewb" path="res://Assets/TowerDefense/kenney_tower-defense-top-down/PNG/Default size/towerDefense_tile287.png" id="11_bi01p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4kfk"]
+size = Vector2(52, 52)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0wqig"]
+radius = 175.0
+
+[sub_resource type="Animation" id="Animation_6swvf"]
+resource_name = "Fire"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Turret/Muzzle/MuzzleFlash:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.0501, 0.0502, 0.0503, 0.0504, 0.0505),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, false, false, false]
+}
+
+[sub_resource type="Animation" id="Animation_5u2bp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Turret/Muzzle/MuzzleFlash:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6sqhv"]
+_data = {
+"Fire": SubResource("Animation_6swvf"),
+"RESET": SubResource("Animation_5u2bp")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gkusd"]
+bg_color = Color(0.372549, 0.929412, 0.513726, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_size = 1
+shadow_offset = Vector2(2, 2)
+
+[node name="GunT1" type="Node2D"]
+script = ExtResource("1_avy6p")
+
+[node name="Base" type="Sprite2D" parent="."]
+texture = ExtResource("2_cg12n")
+
+[node name="Turret" type="Sprite2D" parent="."]
+texture = ExtResource("3_5po8r")
+offset = Vector2(12, 0)
+
+[node name="Muzzle" type="Marker2D" parent="Turret"]
+position = Vector2(42, 0)
+rotation = -3.14159
+
+[node name="MuzzleFlash" type="Sprite2D" parent="Turret/Muzzle"]
+position = Vector2(-10, 0)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_ibo7v")
+
+[node name="Touched" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Touched"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_s4kfk")
+
+[node name="Range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+shape = SubResource("CircleShape2D_0wqig")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6sqhv")
+}
+
+[node name="Upgrade" type="Node" parent="."]
+
+[node name="Upgrade" type="Panel" parent="Upgrade"]
+anchors_preset = -1
+anchor_left = -0.243056
+anchor_top = 0.0771605
+anchor_right = 0.243056
+anchor_bottom = 0.324074
+offset_left = 140.0
+offset_top = -10.0
+offset_right = -140.0
+offset_bottom = -90.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gkusd")
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Upgrade/Upgrade"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -134.0
+offset_top = -32.5
+offset_right = 134.0
+offset_bottom = 32.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="power" type="TextureButton" parent="Upgrade/Upgrade/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = ExtResource("5_nxeve")
+texture_pressed = ExtResource("6_3hgax")
+
+[node name="Cost" type="Label" parent="Upgrade/Upgrade/HBoxContainer/power"]
+layout_mode = 1
+offset_left = 7.0
+offset_top = 5.0
+offset_right = 47.0
+offset_bottom = 28.0
+theme_override_fonts/font = ExtResource("7_rmijf")
+theme_override_font_sizes/font_size = 12
+text = "10"
+
+[node name="Sprite2D" type="Sprite2D" parent="Upgrade/Upgrade/HBoxContainer/power"]
+position = Vector2(32, 25)
+rotation = 1.5708
+texture = ExtResource("8_2vvgw")
+
+[node name="Label" type="Label" parent="Upgrade/Upgrade/HBoxContainer/power"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -24.5
+offset_top = -18.0
+offset_right = 28.5
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("7_rmijf")
+theme_override_font_sizes/font_size = 11
+text = "power"
+
+[node name="range" type="TextureButton" parent="Upgrade/Upgrade/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = ExtResource("5_nxeve")
+texture_pressed = ExtResource("6_3hgax")
+
+[node name="Cost" type="Label" parent="Upgrade/Upgrade/HBoxContainer/range"]
+layout_mode = 1
+offset_left = 7.0
+offset_top = 5.0
+offset_right = 47.0
+offset_bottom = 28.0
+theme_override_fonts/font = ExtResource("7_rmijf")
+theme_override_font_sizes/font_size = 12
+text = "10"
+
+[node name="Sprite2D" type="Sprite2D" parent="Upgrade/Upgrade/HBoxContainer/range"]
+position = Vector2(31.4729, 27.9729)
+rotation = 1.5708
+scale = Vector2(0.8, 0.823)
+texture = ExtResource("9_yxjht")
+
+[node name="Label" type="Label" parent="Upgrade/Upgrade/HBoxContainer/range"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -22.5
+offset_top = -18.0
+offset_right = 30.5
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("7_rmijf")
+theme_override_font_sizes/font_size = 11
+text = "Range"
+
+[node name="rof" type="TextureButton" parent="Upgrade/Upgrade/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = ExtResource("5_nxeve")
+texture_pressed = ExtResource("6_3hgax")
+
+[node name="Cost" type="Label" parent="Upgrade/Upgrade/HBoxContainer/rof"]
+layout_mode = 1
+offset_left = 7.0
+offset_top = 5.0
+offset_right = 47.0
+offset_bottom = 28.0
+theme_override_fonts/font = ExtResource("7_rmijf")
+theme_override_font_sizes/font_size = 12
+text = "10"
+
+[node name="Sprite2D" type="Sprite2D" parent="Upgrade/Upgrade/HBoxContainer/rof"]
+position = Vector2(32, 26)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_5bglv")
+
+[node name="Label" type="Label" parent="Upgrade/Upgrade/HBoxContainer/rof"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -26.5
+offset_top = -18.0
+offset_right = 28.5
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("7_rmijf")
+theme_override_font_sizes/font_size = 11
+text = "Reload"
+
+[node name="sell" type="TextureButton" parent="Upgrade/Upgrade/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = ExtResource("5_nxeve")
+texture_pressed = ExtResource("6_3hgax")
+
+[node name="Cost" type="Label" parent="Upgrade/Upgrade/HBoxContainer/sell"]
+layout_mode = 1
+offset_left = 7.0
+offset_top = 5.0
+offset_right = 47.0
+offset_bottom = 28.0
+theme_override_fonts/font = ExtResource("7_rmijf")
+theme_override_font_sizes/font_size = 12
+text = "10"
+
+[node name="Sprite2D" type="Sprite2D" parent="Upgrade/Upgrade/HBoxContainer/sell"]
+position = Vector2(32, 27)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("11_bi01p")
+
+[node name="Label" type="Label" parent="Upgrade/Upgrade/HBoxContainer/sell"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -15.5
+offset_top = -18.0
+offset_right = 37.5
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("7_rmijf")
+theme_override_font_sizes/font_size = 11
+text = "Sell"
+
+[connection signal="input_event" from="Touched" to="." method="_on_range_input_event"]
+[connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
+[connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]
+[connection signal="mouse_entered" from="Upgrade/Upgrade/HBoxContainer/power" to="." method="_on_power_mouse_entered"]
+[connection signal="mouse_exited" from="Upgrade/Upgrade/HBoxContainer/power" to="." method="_on_power_mouse_exited"]
+[connection signal="pressed" from="Upgrade/Upgrade/HBoxContainer/power" to="." method="_on_power_pressed"]
+[connection signal="pressed" from="Upgrade/Upgrade/HBoxContainer/range" to="." method="_on_range_pressed"]
+[connection signal="pressed" from="Upgrade/Upgrade/HBoxContainer/rof" to="." method="_on_rof_pressed"]
+[connection signal="pressed" from="Upgrade/Upgrade/HBoxContainer/sell" to="." method="_on_sell_pressed"]
